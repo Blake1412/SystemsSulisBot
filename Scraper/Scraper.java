@@ -65,7 +65,7 @@ public class Scraper {
         }
         assignments.forEach(DatabaseConnection::insert);
 
-        DateTimeFormatter dateParseDefault = DateTimeFormatter.ofPattern("MMM d',' uuuu h:mm a");
+        DateTimeFormatter dateParseUK = DateTimeFormatter.ofPattern("MMM d',' uuuu h:mm a", Locale.UK);
         List<Announcement> announcements = new ArrayList<>();
         Arrays.stream(Module.values()).forEach(module -> {
             try {
@@ -81,7 +81,7 @@ public class Scraper {
                     title = title.substring(0, title.length() / 2);
                     String link = linkElement.getAttribute("href");
                     String author = authorElement.getVisibleText();
-                    String postedAt = LocalDateTime.parse(postedAtElement.getVisibleText(), dateParseDefault).toString();
+                    String postedAt = LocalDateTime.parse(postedAtElement.getVisibleText(), dateParseUK).toString();
 
                     announcements.add(new Announcement(title, module.name(), link, author, postedAt));
                 }
@@ -89,6 +89,7 @@ public class Scraper {
                 throw new RuntimeException(e);
             }
         });
+
         dbLinks = DatabaseConnection.selectAnnouncements().stream().map(Announcement::getLink).toList();
         links = announcements.stream().map(Announcement::getLink).toList();
         for (String link : dbLinks) {

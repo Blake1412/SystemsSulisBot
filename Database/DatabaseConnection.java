@@ -71,7 +71,7 @@ public class DatabaseConnection {
         try {
             ResultSet resultSet = connection.createStatement().executeQuery("""
                                                                             SELECT *
-                                                                            FROM assignment
+                                                                            FROM Assignment
                                                                             """);
             return getAssignments(resultSet);
         } catch (SQLException e) {
@@ -83,7 +83,7 @@ public class DatabaseConnection {
         try {
             ResultSet resultSet = connection.createStatement().executeQuery(String.format("""
                                                                                           SELECT *
-                                                                                          FROM assignment
+                                                                                          FROM Assignment
                                                                                           WHERE %s
                                                                                           """, whereFormat(conditions)));
             return getAssignments(resultSet);
@@ -96,7 +96,7 @@ public class DatabaseConnection {
         try {
             ResultSet resultSet = connection.createStatement().executeQuery("""
                                                                             SELECT *
-                                                                            FROM announcement
+                                                                            FROM Announcement
                                                                             """);
             return getAnnouncements(resultSet);
         } catch (SQLException e) {
@@ -108,7 +108,7 @@ public class DatabaseConnection {
         try {
             ResultSet resultSet = connection.createStatement().executeQuery(String.format("""
                                                                                           SELECT *
-                                                                                          FROM announcement
+                                                                                          FROM Announcement
                                                                                           WHERE %s
                                                                                           """, whereFormat(conditions)));
             return getAnnouncements(resultSet);

@@ -29,7 +29,7 @@ public class Bot {
     }
 
     public static void checkForNew() {
-        List<Assignment> assignments = DatabaseConnection.selectAssignments(List.of("deployed = 'false'"));
+        List<Assignment> assignments = DatabaseConnection.selectAssignments(List.of("deployed = false"));
         if (!assignments.isEmpty()) {
             updates.sendMessageEmbeds(assignments.stream().map(assignment -> {
                 EmbedBuilder embedBuilder = new EmbedBuilder();
@@ -45,7 +45,7 @@ public class Bot {
             assignments.forEach(assignment -> DatabaseConnection.update(assignment, Map.of("deployed", "true")));
         }
 
-        List<Announcement> announcements = DatabaseConnection.selectAnnouncements(List.of("deployed = 'false'"));
+        List<Announcement> announcements = DatabaseConnection.selectAnnouncements(List.of("deployed = false"));
         if (!announcements.isEmpty()) {
             updates.sendMessageEmbeds(announcements.stream().map(announcement -> {
                 EmbedBuilder embedBuilder = new EmbedBuilder();
