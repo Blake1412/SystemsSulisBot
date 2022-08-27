@@ -1,4 +1,4 @@
-Web scraper to automatically fetch updates from my College website and post them to a discord server through a bot.
+Web scraper to automatically fetch updates from my college website and post them to a discord server through a bot.
 
 ![ExampleOne](https://user-images.githubusercontent.com/95375978/185610000-72a3a490-d371-49c7-b725-ef2b7ced1798.PNG)
 
