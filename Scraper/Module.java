@@ -2,7 +2,9 @@ public enum Module {
     CS4416("https://sulis.ul.ie/portal/site/b81b7292-1bd8-4a58-86a9-aff31a73db12/tool/",
             "f0dc7d06-b34d-4d85-b6d4-972acef9b1fe", "7b2268b0-e6af-48d4-82e6-af9b49a06e16"),
     CS4013("https://sulis.ul.ie/portal/site/11454e3b-9102-45f6-8c35-4c70151b7044/tool/",
-            "1af4287c-f75b-4e46-8d85-84e38722b957", "ad70c122-7687-4794-aab4-1712752e04e4");
+            "1af4287c-f75b-4e46-8d85-84e38722b957", "ad70c122-7687-4794-aab4-1712752e04e4"),
+    CS4023("https://sulis.ul.ie/portal/site/be55ee3d-7443-48ad-a551-18717542b464/tool/",
+            "aed63d0c-60e6-4282-a069-eb43f6f33da7", "16711697-a04c-4de0-a869-aa2996c348dc");
 
     private final String moduleLink;
     private final String assignmentsLink;
