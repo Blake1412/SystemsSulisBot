@@ -81,7 +81,9 @@ public class Scraper {
                     title = title.substring(0, title.length() / 2);
                     String link = linkElement.getAttribute("href");
                     String author = authorElement.getVisibleText();
-                    String postedAt = LocalDateTime.parse(postedAtElement.getVisibleText(), dateParseUK).toString();
+                    String date = postedAtElement.getVisibleText();
+                    if (date.contains("Sep")) date = date.replace("Sep", "Sept");
+                    String postedAt = LocalDateTime.parse(date, dateParseUK).toString();
 
                     announcements.add(new Announcement(title, module.name(), link, author, postedAt));
                 }
